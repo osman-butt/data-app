@@ -5,6 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Data-app</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <header>SOUTH PARK APP</header>
+    <label class="switch switch--on">
+      <input type="checkbox" class="switch__input" />
+
+      <!-- Circle -->
+      <div class="switch__circle"></div>
+    </label>
+
+    <label class="switch switch--off hidden">
+      <input type="checkbox" class="switch__input hidden" />
+
+      <!-- Circle -->
+      <div class="switch__circle"></div>
+    </label>
+    <main>
+      <section id="characters" class="grid-container">
+        <dialog id="dialog-character">
+          <h2 id="dialog-name"></h2>
+          <img id="dialog-img" src="" />
+          <p id="dialog-nickname"></p>
+          <h3 id="dialog-ocupation"></h3>
+          <p id="dialog-age"></p>
+          <p id="dialog-voicedby"></p>
+          <p id="dialog-gender"></p>
+          <p id="dialog-religion"></p>
+          <p id="dialog-catchphrase"></p>
+          <p id="dialog-haircolor"></p>
+          <p id="dialog-schoolgrade"></p>
+          <p id="dialog-episodes"></p>
+          <p id="dialog-appearances"></p>
+          <p id="dialog-firstAppearance"></p>
+          <form method="dialog">
+            <button>Close</button>
+          </form>
+        </dialog>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
 </html>
