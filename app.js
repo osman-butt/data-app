@@ -8,7 +8,6 @@ async function initApp() {
   showCharacter(wendy);
   showCharacter(wendy);
   showCharacter(wendy);
-  showCharacter(wendy);
 }
 
 function showCharacter(character) {
@@ -16,7 +15,7 @@ function showCharacter(character) {
   const characterHTML = /*html*/ `
           <article class="grid-item">
           <img
-            src="https://static.wikia.nocookie.net/southpark/images/9/9e/Wendyy.png"
+            src="${character.image}"
             alt=""
           />
           <h2>${character.name}</h2>
