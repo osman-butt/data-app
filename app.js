@@ -3,11 +3,10 @@
 window.addEventListener("load", initApp);
 
 async function initApp() {
-  const wendy = await getCharacter("wendy.json");
-
-  showCharacter(wendy);
-  showCharacter(wendy);
-  showCharacter(wendy);
+  const characters = await getCharacter(
+    "https://cederdorff.github.io/dat-js/05-data/southpark.json"
+  );
+  characters.forEach(showCharacter);
 }
 
 function showCharacter(character) {
