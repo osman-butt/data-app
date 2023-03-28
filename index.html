@@ -4,8 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Data-app</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://static.wikia.nocookie.net/southpark/images/9/9e/Wendyy.png"
+    />
     <link rel="stylesheet" href="style.css" />
+    <title>Data-app</title>
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat"
       rel="stylesheet"
@@ -13,46 +18,88 @@
   </head>
   <body>
     <header><h1>SOUTH PARK APP</h1></header>
-    <!-- <label class="switch switch--on">
-      <input type="checkbox" class="switch__input" />
-
-
-      <div class="switch__circle"></div>
-    </label>
-
-    <label class="switch switch--off hidden">
-      <input type="checkbox" class="switch__input hidden" />
-
-      <div class="switch__circle"></div>
-    </label> -->
+    <section id="view-container">
+      <button id="view-btn">Show table view</button>
+    </section>
     <main>
-      <section id="characters" class="grid-container">
-        <dialog id="dialog-character">
-          <h2 id="dialog-name"></h2>
-          <section class="dialog-grid">
-            <img id="dialog-img" src="" />
-            <section id="dialog-details">
-              <p>Nickname: <span id="dialog-nickname"></span></p>
-              <p>Ocupation: <span id="dialog-ocupation"></span></p>
-              <p>Age: <span id="dialog-age"></span></p>
-              <p>Voiced by: <span id="dialog-voicedby"></span></p>
-              <p>Gender: <span id="dialog-gender"></span></p>
-              <p>Religion: <span id="dialog-religion"></span></p>
-              <p>Catchphrase: <span id="dialog-catchphrase"></span></p>
-              <p>Haircolor: <span id="dialog-haircolor"></span></p>
-              <p>Schoolgrade: <span id="dialog-schoolgrade"></span></p>
-              <p>Episodes: <span id="dialog-episodes"></span></p>
-              <p>Appreances: <span id="dialog-appearances"></span></p>
-              <p>First apperance: <span id="dialog-firstAppearance"></span></p>
-            </section>
-          </section>
-          <form method="dialog">
-            <button>CLOSE</button>
-          </form>
-        </dialog>
+      <section id="grid">
+        <section id="grid-characters" class="grid-container"></section>
       </section>
+      <section id="table-characters" class="hidden">
+        <table>
+          <thead>
+            <tr>
+              <th class="img-col">Image</th>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Ocupation</th>
+              <!-- <th>Voiced by</th> -->
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+      <dialog id="dialog-character">
+        <h2 id="dialog-name"></h2>
+        <section class="dialog-grid">
+          <img id="dialog-img" src="" />
+          <section id="dialog-details">
+            <p>
+              <span class="object-property">Nickname:</span>
+              <span id="dialog-nickname"></span>
+            </p>
+            <p>
+              <span class="object-property">Ocupation:</span>
+              <span id="dialog-ocupation"></span>
+            </p>
+            <p>
+              <span class="object-property">Age:</span>
+              <span id="dialog-age"></span>
+            </p>
+            <p>
+              <span class="object-property">Voiced by:</span>
+              <span id="dialog-voicedby"></span>
+            </p>
+            <p>
+              <span class="object-property">Gender:</span>
+              <span id="dialog-gender"></span>
+            </p>
+            <p>
+              <span class="object-property">Religion:</span>
+              <span id="dialog-religion"></span>
+            </p>
+            <p>
+              <span class="object-property">Catchphrase:</span>
+              <span id="dialog-catchphrase"></span>
+            </p>
+            <p>
+              <span class="object-property">Haircolor:</span>
+              <span id="dialog-haircolor"></span>
+            </p>
+            <p>
+              <span class="object-property">Schoolgrade:</span>
+              <span id="dialog-schoolgrade"></span>
+            </p>
+            <p>
+              <span class="object-property">Episodes:</span>
+              <span id="dialog-episodes"></span>
+            </p>
+            <p>
+              <span class="object-property">Apperances:</span>
+              <span id="dialog-appearances"></span>
+            </p>
+            <p>
+              <span class="object-property">First apperance:</span>
+              <span id="dialog-firstAppearance"></span>
+            </p>
+          </section>
+        </section>
+        <form method="dialog">
+          <button>CLOSE</button>
+        </form>
+      </dialog>
     </main>
-    <footer><h2>SOUTH PARK APP</h2></footer>
+    <footer><h5>© 2023 Osman Butt</h5></footer>
     <script src="app.js"></script>
   </body>
 </html>

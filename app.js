@@ -3,59 +3,115 @@
 window.addEventListener("load", initApp);
 
 async function initApp() {
+  localStorage.setItem("viewMode", "grid");
+  document.querySelector("#view-btn").addEventListener("click", changeView);
+
   const characters = await getCharacter(
     "https://cederdorff.github.io/dat-js/05-data/southpark.json"
   );
-  characters.forEach(showCharacter);
+  characters.forEach(showCharacterGrid);
+  characters.forEach(showCharacterTable);
 }
 
-function showCharacter(character) {
-  console.log("showCharacter");
+function changeView() {
+  let view = getView();
+  if (view == "grid") {
+    this.textContent = "Show grid view";
+    saveView("table");
+    document.querySelector("#grid").offsetLeft;
+    document.querySelector("#grid").classList.add("hidden");
+    document.querySelector("#table-characters").classList.remove("hidden");
+  } else {
+    this.textContent = "Show table view";
+    saveView("grid");
+    document.querySelector("#grid").offsetLeft;
+    document.querySelector("#grid").classList.remove("hidden");
+    document.querySelector("#table-characters").offsetLeft;
+    document.querySelector("#table-characters").classList.add("hidden");
+  }
+}
+
+function getView() {
+  const view = localStorage.getItem("viewMode");
+  return view;
+}
+
+function saveView(view) {
+  localStorage.setItem("viewMode", view);
+}
+
+function showCharacterGrid(character) {
+  console.log("showCharacterGrid");
   const characterHTML = /*html*/ `
           <article class="grid-item">
           <img
             src="${character.image}"
             alt=""
           />
-          <h2>${character.name}</h2>
-          <p>Ocupation: ${character.occupation}</p>
-          <p>Age: ${character.age}</p>
-          <p>Voice by: ${character.voicedBy}</p>
+          <h2 style="text-align: center;">${character.name}</h2>
+          <p><span class="object-property">Age:</span> ${character.age}</p>
+          <p><span class="object-property">Ocupation:</span> ${character.occupation}</p>
+          <p><span class="object-property">Voiced by:</span> ${character.voicedBy}</p>
         </article>
   `;
   document
-    .querySelector("#characters")
+    .querySelector("#grid-characters")
     .insertAdjacentHTML("beforeend", characterHTML);
 
   document
-    .querySelector("#characters article:last-child")
-    .addEventListener("click", showDetails);
+    .querySelector("#grid-characters article:last-child")
+    .addEventListener("click", function () {
+      showDetails(character);
+    });
+}
 
-  function showDetails() {
-    console.log("Show details");
-    console.log(character);
-    document.querySelector("#dialog-name").textContent = character.name;
-    document.querySelector("#dialog-nickname").textContent = character.nickname;
-    document.querySelector("#dialog-ocupation").textContent =
-      character.occupation;
-    document.querySelector("#dialog-age").textContent = character.age;
-    document.querySelector("#dialog-voicedby").textContent = character.voicedBy;
-    document.querySelector("#dialog-gender").textContent = character.gender;
-    document.querySelector("#dialog-religion").textContent = character.religion;
-    document.querySelector("#dialog-catchphrase").textContent =
-      character.catchPhrase;
-    document.querySelector("#dialog-haircolor").textContent =
-      character.hairColor;
-    document.querySelector("#dialog-schoolgrade").textContent =
-      character.schoolGrade;
-    document.querySelector("#dialog-episodes").textContent = character.episodes;
-    document.querySelector("#dialog-appearances").textContent =
-      character.appearances;
-    document.querySelector("#dialog-firstAppearance").textContent =
-      character.firstAppearance;
-    document.querySelector("#dialog-img").src = character.image;
-    document.querySelector("#dialog-character").showModal();
-  }
+function showCharacterTable(character) {
+  console.log("showCharacterTable");
+  const characterHTML = /*html*/ `
+  <tr>
+    <td class="img-col">
+      <img src="${character.image}" alt="" class="table-item"/>
+    </td>
+    <td>${character.name}</td>
+    <td>${character.age}</td>
+    <td>${character.occupation}</td>
+  </tr>
+  `;
+  document
+    .querySelector("#table-characters")
+    .querySelector("tbody")
+    .insertAdjacentHTML("beforeend", characterHTML);
+
+  document
+    .querySelector("#table-characters tbody tr:last-child")
+    .addEventListener("click", function () {
+      showDetails(character);
+    });
+}
+
+function showDetails(character) {
+  console.log("Show details");
+  console.log(character);
+  document.querySelector("#dialog-name").textContent = character.name;
+  document.querySelector("#dialog-nickname").textContent = character.nickname;
+  document.querySelector("#dialog-ocupation").textContent =
+    character.occupation;
+  document.querySelector("#dialog-age").textContent = character.age;
+  document.querySelector("#dialog-voicedby").textContent = character.voicedBy;
+  document.querySelector("#dialog-gender").textContent = character.gender;
+  document.querySelector("#dialog-religion").textContent = character.religion;
+  document.querySelector("#dialog-catchphrase").textContent =
+    character.catchPhrase;
+  document.querySelector("#dialog-haircolor").textContent = character.hairColor;
+  document.querySelector("#dialog-schoolgrade").textContent =
+    character.schoolGrade;
+  document.querySelector("#dialog-episodes").textContent = character.episodes;
+  document.querySelector("#dialog-appearances").textContent =
+    character.appearances;
+  document.querySelector("#dialog-firstAppearance").textContent =
+    character.firstAppearance;
+  document.querySelector("#dialog-img").src = character.image;
+  document.querySelector("#dialog-character").showModal();
 }
 
 async function getCharacter(url) {

@@ -4,6 +4,7 @@ body {
   margin: 0;
   background-color: rgb(228, 221, 221);
 }
+
 input,
 textarea,
 button {
@@ -29,63 +30,16 @@ dialog {
   width: 50vw;
 }
 
-/* .dialog-grid {
-  display: flex;
-  gap: 1em;
-  padding: 1em;
-} */
+#dialog-name {
+  text-align: center;
+}
+
+.object-property {
+  font-weight: bold;
+}
 
 .hidden {
   display: none;
-  visibility: hidden;
-}
-
-/* ---------- Switch toggle ---------- */
-.switch {
-  display: flex;
-
-  /* Rounded border */
-  border-radius: 9999px;
-
-  /* Size */
-  height: 2rem;
-  width: 4rem;
-
-  /* Demo */
-  margin-bottom: 0.5rem;
-}
-
-.switch__input {
-  /* Hide the input */
-  display: none;
-}
-
-.switch__circle {
-  /* Rounded border */
-  border-radius: 9999px;
-
-  /* Size */
-  width: 2rem;
-
-  background-color: #fff;
-}
-
-/* ON status */
-.switch--on {
-  background-color: #357edd;
-  border: 1px solid #357edd;
-
-  /* Push the circle to the right */
-  justify-content: flex-end;
-}
-
-/* OFF status */
-.switch--off {
-  background-color: #d1d5db;
-  border: 1px solid #d1d5db;
-}
-.switch--off .switch__circle {
-  border: 1px solid #d1d5db;
 }
 
 /* ---------- grid container styling ---------- */
@@ -123,15 +77,16 @@ dialog {
 .grid-item {
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
   padding: 1.5em;
-  /* background-color: var(--white); */
   background-color: white;
   transition: 0.5s;
-  animation: fadeIn 0.5s;
+  /* animation: fadeIn 0.5s; */
   cursor: pointer;
+  border-radius: 2em;
 }
 
 .grid-item:hover {
   box-shadow: 0 8px 16px 0 var(--green);
+  animation: zoom-in 0.4s forwards;
 }
 
 .grid-item img {
@@ -161,12 +116,21 @@ dialog {
   padding-left: 1em;
 }
 
+.dialog-grid img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: top;
+  justify-self: center;
+}
+
 form button {
   padding: 0.5em 1em 0.5em;
   cursor: pointer;
   background-color: rgb(242, 195, 7);
   color: black;
   font-weight: bolder;
+
   border: none;
 }
 
@@ -176,4 +140,83 @@ form button:hover {
 
 dialog form {
   text-align: center;
+}
+
+/* ---------- View ---------- */
+#view-container {
+  margin: 1em;
+  text-align: center;
+}
+
+#view-btn {
+  padding: 0.5em 1em 0.5em;
+  cursor: pointer;
+  background-color: rgb(242, 195, 7);
+  color: black;
+  font-weight: bolder;
+  border: none;
+  /* justify-self: center; */
+}
+
+#view-btn:hover {
+  box-shadow: 0 2px 6px 0 black;
+}
+
+/* ---------- Table ---------- */
+/* .table-item {
+  width: 50%;
+} */
+table {
+  background-color: white;
+  margin: 1em 2em 1em 2em;
+  text-align: left;
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+tr:nth-child(even) {
+  background-color: rgb(242, 195, 7);
+}
+tr:nth-child(odd) {
+  background-color: white;
+}
+
+th {
+  background-color: rgb(242, 195, 7);
+  height: 50px;
+}
+
+td,
+th {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+/* td > img {
+  width: 70%;
+  height: 110px;
+  object-fit: cover;
+  object-position: top;
+  justify-self: center;
+} */
+
+.img-col {
+  width: 10%;
+  text-align: center;
+}
+
+table img {
+  height: 80px;
+}
+
+tbody tr:hover {
+  box-shadow: 0 8px 16px 0 var(--green);
+  animation: zoom-in 0.4s forwards;
+  cursor: pointer;
+}
+
+/* ---------- Animations ---------- */
+@keyframes zoom-in {
+  100% {
+    transform: scale(1.03);
+  }
 }
