@@ -116,6 +116,14 @@ dialog {
   padding-left: 1em;
 }
 
+#personal-info {
+  margin-bottom: 0.2em;
+}
+
+ul {
+  margin-top: 0.2em;
+}
+
 .dialog-grid img {
   width: 100%;
   height: 400px;
@@ -219,4 +227,19 @@ tbody tr:hover {
   100% {
     transform: scale(1.03);
   }
+}
+
+#more {
+  display: none;
+}
+
+#readMoreBtn {
+  display: inline;
+  background-color: white;
+  border: none;
+  color: blue;
+  text-decoration-line: underline;
+}
+#readMoreBtn:hover {
+  cursor: pointer;
 }
