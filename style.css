@@ -105,7 +105,7 @@ dialog {
 /* ---------- Dialog ---------- */
 .dialog-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
 }
 
 dialog {
@@ -127,8 +127,8 @@ ul {
 }
 
 .dialog-grid img {
-  width: 400px;
-  height: 400px;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
   margin-left: auto;
   margin-right: auto;
@@ -151,6 +151,16 @@ form button:hover {
 
 dialog form {
   text-align: center;
+}
+
+@media (min-width: 992px) {
+  .dialog-grid img {
+    width: 400px;
+    height: 400px;
+  }
+  .dialog-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 /* ---------- View ---------- */
@@ -183,6 +193,8 @@ table {
   text-align: left;
   border-collapse: collapse;
   overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 tr:nth-child(even) {
@@ -194,7 +206,7 @@ tr:nth-child(odd) {
 
 th {
   background-color: rgb(242, 195, 7);
-  height: 50px;
+  /* height: 50px; */
 }
 
 td,
@@ -202,13 +214,6 @@ th {
   padding-left: 1em;
   padding-right: 1em;
 }
-/* td > img {
-  width: 70%;
-  height: 110px;
-  object-fit: cover;
-  object-position: top;
-  justify-self: center;
-} */
 
 .img-col {
   width: 10%;
@@ -223,6 +228,25 @@ tbody tr:hover {
   box-shadow: 0 8px 16px 0 var(--green);
   animation: zoom-in 0.4s forwards;
   cursor: pointer;
+}
+
+.ocupation-col {
+  display: none;
+}
+
+.gender-col {
+  display: none;
+}
+@media (min-width: 600px) {
+  .gender-col {
+    display: table-cell;
+  }
+}
+
+@media (min-width: 992px) {
+  .ocupation-col {
+    display: table-cell;
+  }
 }
 
 /* ---------- Animations ---------- */

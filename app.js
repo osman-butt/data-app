@@ -3,6 +3,7 @@
 window.addEventListener("load", initApp);
 
 async function initApp() {
+  console.log("App init");
   localStorage.setItem("viewMode", "grid");
   document.querySelector("#view-btn").addEventListener("click", changeView);
 
@@ -11,6 +12,7 @@ async function initApp() {
   );
   characters.forEach(showCharacterGrid);
   characters.forEach(showCharacterTable);
+  document.querySelector("#number-of-char").textContent = characters.length;
 }
 
 function changeView() {
@@ -74,7 +76,8 @@ function showCharacterTable(character) {
     </td>
     <td>${character.name}</td>
     <td>${character.age}</td>
-    <td>${character.occupation}</td>
+    <td class="gender-col">${character.gender}</td>
+    <td class="ocupation-col">${character.occupation}</td>
   </tr>
   `;
   document
