@@ -43,7 +43,7 @@ function saveView(view) {
 function showCharacterGrid(character) {
   console.log("showCharacterGrid");
   const characterHTML = /*html*/ `
-          <article class="grid-item">
+        <article class="grid-item">
           <img
             src="${character.image}"
             alt=""
