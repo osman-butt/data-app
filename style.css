@@ -190,7 +190,7 @@ dialog form {
 table {
   background-color: white;
   margin: 1em 2em 1em 2em;
-  text-align: left;
+  text-align: center;
   border-collapse: collapse;
   overflow: hidden;
   margin-left: auto;
@@ -205,8 +205,10 @@ tr:nth-child(odd) {
 }
 
 th {
-  background-color: rgb(242, 195, 7);
-  /* height: 50px; */
+  /* background-color: rgb(242, 195, 7); */
+  background-color: black;
+  color: white;
+  height: 50px;
 }
 
 td,
