@@ -71,7 +71,6 @@ footer {
 }
 
 /* ---------- grid item styling ---------- */
-
 .grid-item {
   box-shadow: 1px 1px 8px var(--black-shadow);
   padding: 1.5em;
