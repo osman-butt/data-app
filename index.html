@@ -10,24 +10,28 @@
       href="https://static.wikia.nocookie.net/southpark/images/9/9e/Wendyy.png"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>Data-app</title>
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat"
       rel="stylesheet"
     />
+    <title>Data-app</title>
   </head>
   <body>
     <header><h1>SOUTH PARK CHARACTERS</h1></header>
+    <!--------- Button to toggle grid or table view --------->
     <section id="view-container">
       <button id="view-btn">Show table view</button>
     </section>
+    <!--------- Number of characters in array --------->
     <h4 style="text-align: center">
       Showing <span id="number-of-char"></span> characters
     </h4>
     <main>
+      <!--------- Grid view --------->
       <section id="grid">
         <section id="grid-characters" class="grid-container"></section>
       </section>
+      <!--------- Table view --------->
       <section id="table-characters" class="hidden">
         <table>
           <thead>
@@ -42,6 +46,7 @@
           <tbody></tbody>
         </table>
       </section>
+      <!--------- Dialog --------->
       <dialog id="dialog-character">
         <h2 id="dialog-name"></h2>
         <section class="dialog-grid">

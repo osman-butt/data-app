@@ -2,21 +2,27 @@
 
 window.addEventListener("load", initApp);
 
+// Initialize app
 async function initApp() {
   console.log("App init");
+  // Set grid view as default
   localStorage.setItem("viewMode", "grid");
   document.querySelector("#view-btn").addEventListener("click", changeView);
 
+  // Fecth json data
   const characters = await getCharacter(
     "https://cederdorff.github.io/dat-js/05-data/southpark.json"
   );
+  // Display data in grid and table view
   characters.forEach(showCharacterGrid);
   characters.forEach(showCharacterTable);
+  // Display number of characters
   document.querySelector("#number-of-char").textContent = characters.length;
 }
 
+// This function is called when the view button is clicked. It switches between the grid and table views
 function changeView() {
-  let view = getView();
+  const view = getView();
   if (view == "grid") {
     this.textContent = "Show grid view";
     saveView("table");
@@ -33,15 +39,18 @@ function changeView() {
   }
 }
 
+// Retrieve view mode = table or grid
 function getView() {
   const view = localStorage.getItem("viewMode");
   return view;
 }
 
+// Set view mode = table or grid
 function saveView(view) {
   localStorage.setItem("viewMode", view);
 }
 
+// Generate the HTML for displaying a single character in grid format
 function showCharacterGrid(character) {
   console.log("showCharacterGrid");
   const characterHTML = /*html*/ `
@@ -67,18 +76,19 @@ function showCharacterGrid(character) {
     });
 }
 
+// Generate the HTML for displaying a single character in grid table
 function showCharacterTable(character) {
   console.log("showCharacterTable");
   const characterHTML = /*html*/ `
-  <tr>
-    <td class="img-col">
-      <img src="${character.image}" alt="" class="table-item"/>
-    </td>
-    <td>${character.name}</td>
-    <td>${character.age}</td>
-    <td class="gender-col">${character.gender}</td>
-    <td class="ocupation-col">${character.occupation}</td>
-  </tr>
+    <tr>
+      <td class="img-col">
+        <img src="${character.image}" alt="" class="table-item"/>
+      </td>
+      <td>${character.name}</td>
+      <td>${character.age}</td>
+      <td class="gender-col">${character.gender}</td>
+      <td class="ocupation-col">${character.occupation}</td>
+    </tr>
   `;
   document
     .querySelector("#table-characters")
@@ -92,6 +102,7 @@ function showCharacterTable(character) {
     });
 }
 
+// This function is called when a character is clicked. It shows the details for the cliked character
 function showDetails(character) {
   console.log("Show details");
   console.log(character);
@@ -109,6 +120,9 @@ function showDetails(character) {
   document.querySelector("#dialog-schoolgrade").textContent =
     character.schoolGrade;
 
+  // If there are more than 6 episodes, then a read more btn is added,
+  // and data is hidden. The data can then be accessed by clicking
+  // the read more btn.
   if (character.episodes != null) {
     if (character.episodes.length > 46) {
       const episodesHTML = /*html*/ `
@@ -139,10 +153,12 @@ function showDetails(character) {
   document.querySelector("#dialog-character").showModal();
 }
 
+// This function is called when the read more btn is clicked,
+// in the details view
 function showMore() {
-  let dots = document.getElementById("dots");
-  let moreText = document.getElementById("more");
-  let btnText = document.getElementById("readMoreBtn");
+  let dots = document.querySelector("#dots");
+  let moreText = document.querySelector("#more");
+  let btnText = document.querySelector("#readMoreBtn");
 
   if (dots.style.display === "none") {
     dots.style.display = "inline";
@@ -155,6 +171,8 @@ function showMore() {
   }
 }
 
+// This function fetches the character data from a json file
+// and returns it as an array of objects.
 async function getCharacter(url) {
   console.log("Get Character");
   const response = await fetch(url);
