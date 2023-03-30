@@ -9,7 +9,7 @@ async function initApp() {
   document.querySelector("#view-btn").addEventListener("click", changeView);
 
   // Fecth json data
-  const characters = await getCharacter(
+  const characters = await getCharacters(
     "https://cederdorff.github.io/dat-js/05-data/southpark.json"
   );
   // Display data in grid and table view
@@ -155,9 +155,9 @@ function showDetails(character) {
 // This function is called when the read more btn is clicked,
 // in the details view
 function showMore() {
-  let dots = document.querySelector("#dots");
-  let moreText = document.querySelector("#more");
-  let btnText = document.querySelector("#readMoreBtn");
+  const dots = document.querySelector("#dots");
+  const moreText = document.querySelector("#more");
+  const btnText = document.querySelector("#readMoreBtn");
 
   if (dots.style.display === "none") {
     dots.style.display = "inline";
@@ -172,7 +172,7 @@ function showMore() {
 
 // This function fetches the character data from a json file
 // and returns it as an array of objects.
-async function getCharacter(url) {
+async function getCharacters(url) {
   console.log("Get Character");
   const response = await fetch(url);
   const data = await response.json();
