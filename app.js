@@ -24,13 +24,13 @@ function changeView() {
   const view = getView();
   if (view == "grid") {
     this.textContent = "Show grid view";
-    saveView("table");
+    updateView("table");
     document.querySelector("#grid").offsetLeft;
     document.querySelector("#grid").classList.add("hidden");
     document.querySelector("#table-characters").classList.remove("hidden");
   } else {
     this.textContent = "Show table view";
-    saveView("grid");
+    updateView("grid");
     document.querySelector("#grid").offsetLeft;
     document.querySelector("#grid").classList.remove("hidden");
     document.querySelector("#table-characters").offsetLeft;
@@ -45,7 +45,7 @@ function getView() {
 }
 
 // Set view mode = table or grid
-function saveView(view) {
+function updateView(view) {
   localStorage.setItem("viewMode", view);
 }
 
